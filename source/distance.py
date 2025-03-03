@@ -42,6 +42,6 @@ def create_distance_matrix(input_file, output_file):
     print(f"Distance matrix has been created and saved to {output_file}")
 
 # Usage
-input_file = 'UAV/data/Map_chandigarh.csv'
-output_file = 'UAV/data/distance_matrix.csv'
+input_file = r'C:\Users\aryan\PycharmProjects\UAV\data\Map_chandigarh.csv'
+output_file = r'C:\Users\aryan\PycharmProjects\UAV/data/distance_matrix.csv'
 create_distance_matrix(input_file, output_file)
