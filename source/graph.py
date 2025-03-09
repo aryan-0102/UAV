@@ -1,63 +1,44 @@
 import pandas as pd
-import networkx as nx
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+df = pd.read_csv('compute.csv', usecols=[4,5])
+df2 = pd.read_csv('customer_data.csv', usecols=[3])
+
+plt.scatter(df['ShortestDistance'],df2)
+
+plt.xlabel('Shortest Distance')
+plt.ylabel('Order Value')
+plt.title('Simple Scatter Plot')
+
+plt.show()
+
+df2['NearestHub'] = df['NearestHub']
+
+# Group order values by hubs
+order_values_by_hub = df2.groupby('NearestHub')['OrderValue'].apply(list)
 
 
-df = pd.read_csv(r'C:\Users\aryan\PycharmProjects\UAV\data\distance_matrix.csv', index_col=0)
-df.index = df.index.str.strip()
-df.columns = df.columns.str.strip()
+plt.figure(figsize=(8, 6))
 
 
-G = nx.from_pandas_adjacency(df)
+colors = {'A': 'red', 'B': 'blue', 'C': 'green', 'D': 'orange'}
+
+for hub, values in order_values_by_hub.items():
+    plt.scatter([hub] * len(values), values, color=colors[hub], label=f'Hub {hub}')
 
 
-pos = nx.spring_layout(G, seed=51)
+plt.xlabel('Nearest Hub')
+plt.ylabel('Order Value')
+plt.title('Order Value vs Nearest Hub')
+plt.legend()
+plt.show()
 
+mean_values = df2.groupby('NearestHub')['OrderValue'].mean()  # Calculate mean
+median_values = df2.groupby('NearestHub')['OrderValue'].median()  # Calculate median
 
-edge_x, edge_y = [], []
-for u, v in G.edges():
-    x0, y0 = pos[u]
-    x1, y1 = pos[v]
-    edge_x += [x0, x1, None]
-    edge_y += [y0, y1, None]
+# Combine mean and median into a summary statistics DataFrame
+summary_stats = pd.DataFrame({
+    'Mean': mean_values,
+    'Median': median_values
+})
 
-edge_trace = go.Scatter(
-    x=edge_x, y=edge_y,
-    line=dict(width=1, color='#888'),
-    hoverinfo='none',
-    mode='lines'
-)
-
-
-node_x, node_y, node_text = [], [], []
-for node in G.nodes():
-    x, y = pos[node]
-    node_x.append(x)
-    node_y.append(y)
-    node_text.append(node)
-
-node_trace = go.Scatter(
-    x=node_x, y=node_y,
-    mode='markers+text',
-    text=node_text,
-    textposition='bottom center',
-    marker=dict(size=10, color='skyblue', line_width=2)
-)
-
-
-fig = go.Figure(
-    data=[edge_trace, node_trace],
-    layout=go.Layout(
-        title='Network Graph',
-        showlegend=False,
-        hovermode='closest',
-        margin=dict(l=20, r=20, t=40, b=20),
-        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
-    )
-)
-fig.show()
-print("Nodes:", G.nodes())      
-print("Edges:", G.edges())
-print("Number of Nodes:", G.number_of_nodes())
-print("Number of Edges:", G.number_of_edges())
+print(summary_stats)
