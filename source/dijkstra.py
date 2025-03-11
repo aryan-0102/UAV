@@ -24,7 +24,7 @@ def calculate_nearest_hub(G, user_location):
         except nx.NetworkXNoPath:
             distances_meters[name] = np.inf
 
-    distances_km = {name: distance / 1000 for name, distance in distances_meters.items()}
+    distances_km = {name: distance for name, distance in distances_meters.items()}
     sorted_names = sorted(distances_km, key=lambda name: distances_km[name])
     nearest_hub_name = sorted_names[0]
     nearest_distance_km = distances_km[nearest_hub_name]

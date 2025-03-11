@@ -71,7 +71,7 @@ def plot_route(G, user_location, nearest_hub_name, nearest_distance_km, distance
         folium.Marker(route_coords[0], popup=f"Route Distance: {route_distance / 1000:.2f} km",
                       icon=folium.Icon(color="purple")).add_to(m)
 
-    m.save("chandigarh_route_map.html")
+    m.save("shortest_route_map_dk.html")
 
     return route_coords
 
@@ -106,7 +106,7 @@ def main():
     save_to_csv(user_location, nearest_hub_name, nearest_distance_km)
 
     import webbrowser
-    webbrowser.open("chandigarh_route_map.html")
+    webbrowser.open("shortest_route_map_dk.html")
 
 
 if __name__ == "__main__":
