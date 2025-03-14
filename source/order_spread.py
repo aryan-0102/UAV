@@ -1,34 +1,27 @@
-import osmnx as ox
-import folium
-import networkx as nx
+#!/usr/bin/env python3
 import pandas as pd
+import folium
+import osmnx as ox
 
-G = ox.graph_from_place('Chandigarh, India', network_type='drive')
+# Load the CSV file
+customer_data = pd.read_csv('customer_data.csv')
 
+# Extract latitude and longitude
+latitudes = customer_data['Latitude']
+longitudes = customer_data['Longitude']
 
-m = folium.Map(location=[G.nodes[list(G.nodes)[0]]['y'], G.nodes[list(G.nodes)[0]]['x']], zoom_start=12)
+# Create a map centered on Chandigarh
+m = folium.Map(location=[30.7333, 76.7794], zoom_start=12)
 
+# Plot points
+for lat, lon in zip(latitudes, longitudes):
+    folium.Marker([lat, lon], radius=2).add_to(m)
 
-for u, v in G.edges():
-    if 'geometry' in G[u][v]:
-        geometry = G[u][v]['geometry']
-        folium.PolyLine([(p.y, p.x) for p in geometry.coords], color='blue').add_to(m)
-
-df = pd.read_csv('compute.csv', usecols=[1,2])
-
-
-
-for index, row in df.iterrows():
-    folium.Marker(
-        location=[row[1], row[0]],
-        popup=f"Latitude: {row[1]}, Longitude: {row[0]}",
-        icon=folium.Icon(color="red", icon="info-sign")
-    ).add_to(m)
+# Save the map as an HTML file
+m.save('customer_points_map.html')
 
 
-m.save('map_with_points.html')
 
-print("Map saved as 'map_with_points.html'. Open it in a browser to view.")
 
 import webbrowser
-webbrowser.open("map_with_points.html")
+webbrowser.open("customer_points_map.html")

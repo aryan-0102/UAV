@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 import osmnx as ox
@@ -8,13 +7,15 @@ import pandas as pd
 # Calculate mass distances ---------
 import time
 start_time = time.time()
-
 hub_coordinates = {
     'A': (30.724913, 76.787800),
     'B': (30.746120, 76.769660),
     'C': (30.727379, 76.725188),
     'D': (30.700463, 76.755896)
 }
+
+
+
 
 
 
@@ -26,7 +27,7 @@ def calculate_nearest_hub(G, user_location):
     distances_meters = {}
     for name, hub_node in hub_nodes.items():
         try:
-            distance_meters = nx.dijkstra_path_length(G, user_node, hub_node, weight='length')
+            distance_meters = nx.astar_path_length(G, user_node, hub_node, weight='length')
             distances_meters[name] = distance_meters
         except nx.NetworkXNoPath:
             distances_meters[name] = np.inf
@@ -102,9 +103,9 @@ results_df = pd.DataFrame({
     'Route': routes
 })
 
-results_df.to_csv('dijkstra.csv', index=False)
+results_df.to_csv('a_star.csv', index=False)
 
-print("Results saved to dijkstra.csv")
+print("Results saved to a_star.csv")
 end_time = time.time()
 execution_time = end_time - start_time
 
@@ -112,4 +113,4 @@ print(f"Execution time: {execution_time} seconds")
 
 df = pd.DataFrame([execution_time])
 
-df.to_csv('dk_execution.csv',mode = 'a', index=False)
+df.to_csv('as_execution.csv',mode = 'a', index=False)

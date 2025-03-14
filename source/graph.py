@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv('compute.csv', usecols=[4,5])
+df = pd.read_csv('dijkstra.csv', usecols=[4,5])
 df2 = pd.read_csv('customer_data.csv', usecols=[3])
 
 plt.scatter(df['ShortestDistance'],df2)

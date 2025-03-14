@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1fbd61a9e5cc9d962effa89c4307e52f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_1fbd61a9e5cc9d962effa89c4307e52f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1fbd61a9e5cc9d962effa89c4307e52f = L.map(
+                "map_1fbd61a9e5cc9d962effa89c4307e52f",
+                {
+                    center: [30.7333, 76.7794],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bcd5cd7b832dc1f8377e1c57b08457ee = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bcd5cd7b832dc1f8377e1c57b08457ee.addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var marker_466bf0299bba837d20e3049124ef391e = L.marker(
+                [30.724913, 76.7878],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_4ef80638c4ffa23e433ecdfb7edfa0c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e9809a0af96f4f0a83f65099aaa9f821 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eaedfea7af661c8720e78279db92ec9f = $(`<div id="html_eaedfea7af661c8720e78279db92ec9f" style="width: 100.0%; height: 100.0%;">Hub A - Distance: 6.70 km</div>`)[0];
+                popup_e9809a0af96f4f0a83f65099aaa9f821.setContent(html_eaedfea7af661c8720e78279db92ec9f);
+            
+        
+
+        marker_466bf0299bba837d20e3049124ef391e.bindPopup(popup_e9809a0af96f4f0a83f65099aaa9f821)
+        ;
+
+        
+    
+    
+                marker_466bf0299bba837d20e3049124ef391e.setIcon(icon_4ef80638c4ffa23e433ecdfb7edfa0c4);
+            
+    
+            var marker_112d98e1f6822057dd2585d3639eb0d1 = L.marker(
+                [30.74612, 76.76966],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_c104b91bd8cbe60622397bd39097fa07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a482788d4bd508370a49085511517067 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b885a986eb8757b09ba41c6c8fa357a = $(`<div id="html_8b885a986eb8757b09ba41c6c8fa357a" style="width: 100.0%; height: 100.0%;">Hub B - Distance: 3.43 km</div>`)[0];
+                popup_a482788d4bd508370a49085511517067.setContent(html_8b885a986eb8757b09ba41c6c8fa357a);
+            
+        
+
+        marker_112d98e1f6822057dd2585d3639eb0d1.bindPopup(popup_a482788d4bd508370a49085511517067)
+        ;
+
+        
+    
+    
+                marker_112d98e1f6822057dd2585d3639eb0d1.setIcon(icon_c104b91bd8cbe60622397bd39097fa07);
+            
+    
+            var marker_8e9252c8325f075f78ecfc46e9e7fe23 = L.marker(
+                [30.727379, 76.725188],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_1c35df3b60eb94274ce04026c1eebad9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f56389380be0a75db6cc7b90c89fee32 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_87f808d42bfd36fac7446171ed643f15 = $(`<div id="html_87f808d42bfd36fac7446171ed643f15" style="width: 100.0%; height: 100.0%;">Hub C - Distance: 1.99 km</div>`)[0];
+                popup_f56389380be0a75db6cc7b90c89fee32.setContent(html_87f808d42bfd36fac7446171ed643f15);
+            
+        
+
+        marker_8e9252c8325f075f78ecfc46e9e7fe23.bindPopup(popup_f56389380be0a75db6cc7b90c89fee32)
+        ;
+
+        
+    
+    
+                marker_8e9252c8325f075f78ecfc46e9e7fe23.setIcon(icon_1c35df3b60eb94274ce04026c1eebad9);
+            
+    
+            var marker_5d11168ad0538ba799731bb7dbf7a20e = L.marker(
+                [30.700463, 76.755896],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_f3ac6a11e1bb76c5a6ba65a3c6f6e5d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61be0d24aa084152c8204dd652ea1b7a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac703ec52e90b0064b3f9371561dec09 = $(`<div id="html_ac703ec52e90b0064b3f9371561dec09" style="width: 100.0%; height: 100.0%;">Hub D - Distance: 5.46 km</div>`)[0];
+                popup_61be0d24aa084152c8204dd652ea1b7a.setContent(html_ac703ec52e90b0064b3f9371561dec09);
+            
+        
+
+        marker_5d11168ad0538ba799731bb7dbf7a20e.bindPopup(popup_61be0d24aa084152c8204dd652ea1b7a)
+        ;
+
+        
+    
+    
+                marker_5d11168ad0538ba799731bb7dbf7a20e.setIcon(icon_f3ac6a11e1bb76c5a6ba65a3c6f6e5d7);
+            
+    
+            var marker_e73bd92bb33cd2b033d98e7cd55859e3 = L.marker(
+                [30.737613, 76.742474],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_b64af28ab6f212572ccb52391a252dbc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b714bb4375ea350a772c0e354691b80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa28fc8c5de6b0f8c5ab30b68e59b8a9 = $(`<div id="html_aa28fc8c5de6b0f8c5ab30b68e59b8a9" style="width: 100.0%; height: 100.0%;">User Location</div>`)[0];
+                popup_7b714bb4375ea350a772c0e354691b80.setContent(html_aa28fc8c5de6b0f8c5ab30b68e59b8a9);
+            
+        
+
+        marker_e73bd92bb33cd2b033d98e7cd55859e3.bindPopup(popup_7b714bb4375ea350a772c0e354691b80)
+        ;
+
+        
+    
+    
+                marker_e73bd92bb33cd2b033d98e7cd55859e3.setIcon(icon_b64af28ab6f212572ccb52391a252dbc);
+            
+    
+            var marker_a09be8de35d5e6761f1d8ee6a067c3e5 = L.marker(
+                [30.727379, 76.725188],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_e4f6027935778c2fd310db09a89c2ebb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c51a5717d273c4e47c6ae247e65754f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_76b72ca9f867b5adabd1b3428d89c6d8 = $(`<div id="html_76b72ca9f867b5adabd1b3428d89c6d8" style="width: 100.0%; height: 100.0%;">Nearest Hub C - Distance: 1.99 km</div>`)[0];
+                popup_c51a5717d273c4e47c6ae247e65754f1.setContent(html_76b72ca9f867b5adabd1b3428d89c6d8);
+            
+        
+
+        marker_a09be8de35d5e6761f1d8ee6a067c3e5.bindPopup(popup_c51a5717d273c4e47c6ae247e65754f1)
+        ;
+
+        
+    
+    
+                marker_a09be8de35d5e6761f1d8ee6a067c3e5.setIcon(icon_e4f6027935778c2fd310db09a89c2ebb);
+            
+    
+            var poly_line_a029fdbb081054be3268ce47ed98867f = L.polyline(
+                [[30.7377939, 76.7424656], [30.7378475, 76.7421996], [30.7376083, 76.7417029], [30.7346411, 76.7371314], [30.7344174, 76.7367728], [30.7341483, 76.7363413], [30.7334082, 76.7351547], [30.7333593, 76.7350792], [30.7328445, 76.7342845], [30.7325714, 76.7338163], [30.7324217, 76.7335769], [30.7323446, 76.7334535], [30.7321342, 76.7331171], [30.7313241, 76.7317893], [30.7309762, 76.7314459], [30.7308073, 76.7314205], [30.7306285, 76.7310773], [30.7306447, 76.7309845], [30.7305205, 76.7305771], [30.7300605, 76.7297742], [30.7299554, 76.7296009], [30.7292047, 76.7283793], [30.7279605, 76.7289586], [30.7271001, 76.7275892]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var marker_bcea4f0334086663555f932576d192d1 = L.marker(
+                [30.7377939, 76.7424656],
+                {
+}
+            ).addTo(map_1fbd61a9e5cc9d962effa89c4307e52f);
+        
+    
+            var icon_3f1f90ed385ad7c599208438effa46a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9bf95a702859bfa5ee0fbe6185e59d3e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6c7ac6482f343e7a3fac63e66f36c8d = $(`<div id="html_b6c7ac6482f343e7a3fac63e66f36c8d" style="width: 100.0%; height: 100.0%;">Route Distance: 1.99 km</div>`)[0];
+                popup_9bf95a702859bfa5ee0fbe6185e59d3e.setContent(html_b6c7ac6482f343e7a3fac63e66f36c8d);
+            
+        
+
+        marker_bcea4f0334086663555f932576d192d1.bindPopup(popup_9bf95a702859bfa5ee0fbe6185e59d3e)
+        ;
+
+        
+    
+    
+                marker_bcea4f0334086663555f932576d192d1.setIcon(icon_3f1f90ed385ad7c599208438effa46a9);
+            
+</script>
+</html>

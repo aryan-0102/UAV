@@ -1,12 +1,15 @@
 
+
 #!/usr/bin/env python3
 import pandas as pd
 import numpy as np
 import osmnx as ox
 import networkx as nx
 import time
-from datetime import datetime
+
+
 start_time = time.time()
+
 
 
 
@@ -59,9 +62,11 @@ for idx, row in customer_data.iterrows():
 distance_df = pd.DataFrame(distance_matrix)
 distance_df.insert(0, 'Location', customer_data['Location'])
 
+end_time = time.time()
+execution_time_initial = end_time - start_time
 # Artificial Bee Colony Algorithm implementation
 class ABCAlgorithm:
-    def __init__(self, distance_df, n_bees=50, max_iter=1000):
+    def __init__(self, distance_df, max_iter,n_bees=50 ):
         self.distance_df = distance_df.set_index('Location')
         self.locations = self.distance_df.index.tolist()
         self.hubs = self.distance_df.columns.tolist()
@@ -92,7 +97,8 @@ class ABCAlgorithm:
             if fitness_values[min_idx] < self.best_cost:
                 self.best_cost = fitness_values[min_idx]
                 self.best_solution = population[min_idx].copy()
-                print(f"Iteration {iteration+1}: Best total distance so far: {self.best_cost:.2f} meters")
+
+                print(f"Iteration {iteration+1}: Best total distance so far: {self.best_cost:.2f} meters",end='\r')
 
             # Employed bees phase (local search)
             for i in range(self.n_bees):
@@ -123,31 +129,50 @@ class ABCAlgorithm:
         return dict(zip(self.locations, self.best_solution))
 
 # Run ABC algorithm to get optimal assignments
-abc_solver = ABCAlgorithm(distance_df)
-optimal_assignment = abc_solver.run()
+def iterator(num_iterations,distance_df):
+    max_iter = num_iterations
+    abc_solver = ABCAlgorithm(distance_df,max_iter)
+    optimal_assignment = abc_solver.run()
 
-# Save final results including route details to CSV file
-final_results = []
+    # Save final results including route details to CSV file
+    final_results = []
 
-print("Saving results to abc_distances2.csv...")
-for idx, row in customer_data.iterrows():
-    loc_name = row['Location']
-    assigned_hub = optimal_assignment[loc_name]
-    final_results.append({
-        'Location': loc_name,
-        'Latitude': row['Latitude'],
-        'Longitude': row['Longitude'],
-        'NearestHub': assigned_hub,
-        'Distance(meters)': distance_df.loc[distance_df.Location == loc_name, assigned_hub].values[0],
-        'Route(nodes)': routes_dict[loc_name][assigned_hub]
-    })
+    print(f"Saving results to abc_distances{i}.csv...")
+    for idx, row in customer_data.iterrows():
+        loc_name = row['Location']
+        assigned_hub = optimal_assignment[loc_name]
+        final_results.append({
+            'Location': loc_name,
+            'Latitude': row['Latitude'],
+            'Longitude': row['Longitude'],
+            'NearestHub': assigned_hub,
+            'Distance(meters)': distance_df.loc[distance_df.Location == loc_name, assigned_hub].values[0],
+            'Route(nodes)': routes_dict[loc_name][assigned_hub]
+        })
 
-final_results_df = pd.DataFrame(final_results)
-final_results_df.to_csv('abc_distances1000.csv', index=False)
+    final_results_df = pd.DataFrame(final_results)
+    final_results_df.to_csv(f'abc_distances{num_iterations}.csv', index=False)
 
-print("All tasks completed successfully!")
-end_time = time.time()
-execution_time = end_time - start_time
+    print("All tasks completed successfully!")
 
 
-print(f"Execution time: {execution_time} seconds")
+
+iterations = [100, 200, 300, 400, 500, 1000]
+execution = []
+
+
+for i in iterations:
+    print(f'No of iterations: {i}')
+    start_time = time.time()
+    iterator(i, distance_df)
+    end_time = time.time()
+    execution_time = end_time - start_time + execution_time_initial
+    execution.append(execution_time)  # Append to the array
+    print(f"Execution time: {execution_time} seconds")
+
+# Create DataFrame with iterations as column headers and execution times as values
+df = pd.DataFrame([execution])
+
+# Save to CSV
+df.to_csv('execution.csv',mode = 'a', index=False)
+
