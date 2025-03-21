@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the CSV files
-file_dijkstra = 'optimized_schedule_dijkstra_v9.csv'
-file_abc = 'optimized_schedule_abc_v9.csv'
+file_dijkstra = 'optimized_schedule_dijkstra_v4.csv'
+file_abc = 'optimized_schedule_abc_v4.csv'
 
 # Read the CSV files
 df_dijkstra = pd.read_csv(file_dijkstra)
@@ -21,7 +21,8 @@ def print_time_stats(df, source_name):
     total_minutes_max = df['TotalMinutes'].max()
     travel_minutes_avg = df['TravelMinutes'].mean()
     travel_minutes_max = df['TravelMinutes'].max()
-
+    print('total',df['TotalMinutes'].sum())
+    print('travel',df['TravelMinutes'].sum())
     total_minutes_diff = total_minutes_max - total_minutes_avg
     travel_minutes_diff = travel_minutes_max - travel_minutes_avg
 
@@ -54,3 +55,6 @@ plt.tight_layout()
 
 plt.savefig('delivery.png', dpi=300)
 plt.show()
+
+
+print()
