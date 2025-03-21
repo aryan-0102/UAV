@@ -10,10 +10,9 @@ start_time = time.time()
 
 
 
-# Load customer data
 customer_data = pd.read_csv('customer_data_old.csv')
 
-# Define hubs with coordinates
+
 hubs = {
     'A': (30.724913, 76.787800),
     'B': (30.746120, 76.769660),
@@ -21,7 +20,6 @@ hubs = {
     'D': (30.700463, 76.755896)
 }
 
-# Fetch Chandigarh map using OSMnx
 print("Fetching Chandigarh map...")
 G = ox.graph_from_place('Chandigarh, India', network_type='drive')
 

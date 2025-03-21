@@ -9,7 +9,7 @@ df2 = pd.read_csv('dijkstra.csv')
 df1 = pd.read_csv('a_star.csv')
 
 
-abc = df['ShortestDistance']
+abc = df['Distance(meters)']
 dikstra = df2['ShortestDistance']
 bellman = df3['ShortestDistance']
 star = df1['ShortestDistance']
