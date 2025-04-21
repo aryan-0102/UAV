@@ -16,7 +16,6 @@ star = df1['ShortestDistance']
 
 plt.plot(abc, linestyle='-',label='ABC')
 plt.plot(dikstra, linestyle='-',label='DIJKSTRA')
-plt.plot(bellman, linestyle='-',label='BELLMAN')
 plt.plot(star, linestyle='-',label='STAR')
 plt.legend()
 plt.grid(True)

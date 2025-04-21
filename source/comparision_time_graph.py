@@ -4,20 +4,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Create a DataFrame with the statistics
-algorithms = ['Dijkstra', 'Astar', 'BLF', 'ABC']
-avg_values = [36.43, 37.82, 114.57, 140.41]
-max_values = [38.48, 38.12, 115.58, 145.80]
-min_values = [36.04, 37.62, 113.97, 138.23]
+algorithms = ['Dijkstra', 'Astar',  'ABC']
+avg_values = [36.43, 37.82, 140.41]
+max_values = [38.48, 38.12, 145.80]
+min_values = [36.04, 37.62, 138.23]
 
 # Reshape data for seaborn
 data = pd.DataFrame({
     'Algorithm': np.repeat(algorithms, 3),
-    'Statistic': np.tile(['Average', 'Maximum', 'Minimum'], 4),
+    'Statistic': np.tile(['Average', 'Maximum', 'Minimum'], 3),
     'Value': np.concatenate([
         np.array([avg_values[0], max_values[0], min_values[0]]),
         np.array([avg_values[1], max_values[1], min_values[1]]),
-        np.array([avg_values[2], max_values[2], min_values[2]]),
-        np.array([avg_values[3], max_values[3], min_values[3]])
+        np.array([avg_values[2], max_values[2], min_values[2]])
     ])
 })
 
@@ -41,7 +40,7 @@ for container in ax.containers:
 # Customize the plot
 plt.title('Performance Comparison of Path-Finding Algorithms', fontsize=18, pad=20)
 plt.xlabel('Algorithms', fontsize=14, labelpad=10)
-plt.ylabel('Time (ms)', fontsize=14, labelpad=10)
+plt.ylabel('Time (sec)', fontsize=14, labelpad=10)
 plt.legend(title='Statistics', title_fontsize=12, fontsize=10)
 
 # Adjust y-axis to start from 0
